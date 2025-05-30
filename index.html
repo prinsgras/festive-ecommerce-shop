@@ -28,7 +28,7 @@
         }
         
         /* Header Styles */
-        .top-bar {
+        .top-header {
             background-color: var(--roller-green);
             color: var(--roller-white);
             padding: 10px 0;
@@ -102,20 +102,6 @@
             color: var(--roller-green);
         }
         
-        .nav-links a.active {
-            color: var(--roller-green);
-        }
-        
-        .nav-links a.active:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background-color: var(--roller-red);
-            bottom: -8px;
-            left: 0;
-        }
-        
         /* Search Bar */
         .search-container {
             background-color: var(--roller-white);
@@ -148,18 +134,6 @@
             cursor: pointer;
         }
         
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: none;
-        }
-        
-        .main-content.active {
-            display: block;
-        }
-        
         /* Hero Banner */
         .hero {
             height: 400px;
@@ -169,9 +143,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-bottom: 30px;
+            margin: 20px auto;
+            max-width: 1200px;
             border-radius: 8px;
-            overflow: hidden;
         }
         
         .hero-content {
@@ -219,18 +193,38 @@
         }
         
         /* Product Grid */
+        .product-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--roller-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-title a {
+            font-size: 16px;
+            color: var(--roller-secondary);
+            text-decoration: none;
+        }
+        
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
-            margin: 30px 0;
         }
         
         .product-card {
             background-color: var(--roller-white);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
         
@@ -239,8 +233,8 @@
         }
         
         .product-image {
-            height: 180px;
-            background-color: #eee;
+            height: 200px;
+            background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -253,25 +247,15 @@
         
         .product-title {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
         }
         
         .product-price {
-            color: var(--roller-red);
+            color: var(--roller-secondary);
             font-weight: bold;
             font-size: 18px;
-            margin: 10px 0;
-        }
-        
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-        
-        .product-actions .btn {
-            padding: 8px 15px;
-            font-size: 14px;
         }
         
         /* Footer */
@@ -279,7 +263,6 @@
             background-color: var(--roller-dark);
             color: var(--roller-white);
             padding: 40px 0 20px;
-            margin-top: 50px;
         }
         
         .footer-container {
@@ -292,7 +275,7 @@
         }
         
         .footer-column h3 {
-            color: var(--roller-green);
+            color: var(--roller-primary);
             margin-bottom: 20px;
             font-size: 18px;
         }
@@ -335,10 +318,6 @@
                 padding-bottom: 10px;
             }
             
-            .nav-links li {
-                margin-right: 15px;
-            }
-            
             .hero {
                 height: 300px;
             }
@@ -355,12 +334,12 @@
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar">
+    <div class="top-header">
         <div class="header-container">
             <div class="logo">ROLLER<span>-BANK</span></div>
             <div class="user-actions">
-                <a href="#" data-section="account">🔐 Mijn account</a>
-                <a href="#" data-section="cart">🛒 Winkelwagen (0)</a>
+                <a href="https://www.bol.com/nl/nl/" target="_blank">🔐 Mijn account</a>
+                <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html" target="_blank">🛒 Winkelwagen</a>
             </div>
         </div>
     </div>
@@ -369,13 +348,13 @@
     <nav class="main-nav">
         <div class="nav-container">
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
-                <li><a href="#" class="nav-link" data-section="accounts">Rekeningen</a></li>
-                <li><a href="#" class="nav-link" data-section="savings">Sparen</a></li>
-                <li><a href="#" class="nav-link" data-section="investments">Beleggen</a></li>
-                <li><a href="#" class="nav-link" data-section="mortgages">Hypotheken</a></li>
-                <li><a href="#" class="nav-link" data-section="insurance">Verzekeringen</a></li>
-                <li><a href="#" class="nav-link" data-section="service">Service</a></li>
+                <li><a href="https://www.bol.com/nl/nl/" target="_blank">Home</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/electronics/" target="_blank">Rekeningen</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/books/" target="_blank">Sparen</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/toys/" target="_blank">Beleggen</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/fashion/" target="_blank">Hypotheken</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/sports/" target="_blank">Verzekeringen</a></li>
+                <li><a href="https://www.bol.com/nl/nl/m/service/" target="_blank">Service</a></li>
             </ul>
         </div>
     </nav>
@@ -383,140 +362,112 @@
     <!-- Search Bar -->
     <div class="search-container">
         <div class="search-bar">
-            <input type="text" placeholder="Zoek producten of diensten...">
-            <button>🔍</button>
+            <form action="https://www.bol.com/nl/nl/s/" method="get" target="_blank">
+                <input type="text" name="searchtext" placeholder="Zoek producten of diensten...">
+                <button type="submit">🔍</button>
+            </form>
         </div>
     </div>
     
-    <!-- Main Content Sections -->
-    <main>
-        <!-- Home Section -->
-        <section id="home-section" class="main-content active">
-            <div class="hero">
-                <div class="hero-content">
-                    <h1>Welkom bij ROLLER-BANK</h1>
-                    <p>De modernste manier van bankieren. Snel, veilig en altijd binnen handbereik.</p>
-                    <a href="#" class="btn btn-red" data-section="accounts">Open nu een rekening</a>
-                </div>
-            </div>
-            
-            <h2>Populaire producten</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product="basic-account">
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welkom bij ROLLER-BANK</h1>
+            <p>De modernste manier van bankieren. Snel, veilig en altijd binnen handbereik.</p>
+            <a href="https://www.bol.com/nl/nl/m/electronics/" class="btn btn-red" target="_blank">Open nu een rekening</a>
+        </div>
+    </section>
+    
+    <!-- Product Sections -->
+    <section class="product-section">
+        <h2 class="section-title">Populaire producten <a href="https://www.bol.com/nl/nl/m/top-20/" target="_blank">Bekijk alle</a></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/sony-wh-1000xm5-hoofdtelefoon-zwart/9300000084149205/" target="_blank">
                     <div class="product-image">Betaalrekening</div>
                     <div class="product-info">
                         <div class="product-title">ROLLER Basisrekening</div>
                         <div class="product-price">Gratis</div>
-                        <p>Complete betaalrekening zonder kosten</p>
-                        <div class="product-actions">
-                            <a href="#" class="btn" data-section="basic-account">Meer info</a>
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Toevoegen</a>
-                        </div>
                     </div>
-                </div>
-                
-                <div class="product-card" data-product="savings-account">
+                </a>
+            </div>
+            
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/philips-hue-white-and-color-ambiance-e27-1100lm/9200000084149205/" target="_blank">
                     <div class="product-image">Spaarrekening</div>
                     <div class="product-info">
                         <div class="product-title">ROLLER Spaar Plus</div>
                         <div class="product-price">1,5% rente</div>
-                        <p>Hoge rente met flexibel opnemen</p>
-                        <div class="product-actions">
-                            <a href="#" class="btn" data-section="savings-account">Meer info</a>
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Toevoegen</a>
-                        </div>
                     </div>
-                </div>
-                
-                <div class="product-card" data-product="investment-fund">
+                </a>
+            </div>
+            
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/lego-star-wars-millennium-falcon/9300000084149205/" target="_blank">
                     <div class="product-image">Beleggingsfonds</div>
                     <div class="product-info">
                         <div class="product-title">ROLLER Groeifonds</div>
                         <div class="product-price">Vanaf €50</div>
-                        <p>Divers fonds met hoog rendement</p>
-                        <div class="product-actions">
-                            <a href="#" class="btn" data-section="investment-fund">Meer info</a>
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Toevoegen</a>
-                        </div>
                     </div>
-                </div>
-                
-                <div class="product-card" data-product="mortgage">
+                </a>
+            </div>
+            
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/nespresso-vertuo-next-koffiemachine-zwart/9200000084149205/" target="_blank">
                     <div class="product-image">Hypotheek</div>
                     <div class="product-info">
                         <div class="product-title">ROLLER Hypotheek</div>
                         <div class="product-price">3,2% rente</div>
-                        <p>Gunstige voorwaarden voor starters</p>
-                        <div class="product-actions">
-                            <a href="#" class="btn" data-section="mortgage">Meer info</a>
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Toevoegen</a>
-                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </section>
-        
-        <!-- Accounts Section -->
-        <section id="accounts-section" class="main-content">
-            <h1>Bankrekeningen</h1>
-            <p>Kies de rekening die bij uw behoeften past</p>
+        </div>
+    </section>
+    
+    <section class="product-section">
+        <h2 class="section-title">Speciale aanbiedingen <a href="https://www.bol.com/nl/nl/m/aanbiedingen/" target="_blank">Bekijk alle</a></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/apple-airpods-pro-2e-generatie/9300000084149205/" target="_blank">
+                    <div class="product-image">Creditcard</div>
+                    <div class="product-info">
+                        <div class="product-title">ROLLER Creditcard</div>
+                        <div class="product-price">1e jaar gratis</div>
+                    </div>
+                </a>
+            </div>
             
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">Basis</div>
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/samsung-galaxy-s23-5g-256gb-zwart/9300000084149205/" target="_blank">
+                    <div class="product-image">Reisverzekering</div>
                     <div class="product-info">
-                        <div class="product-title">Basisrekening</div>
-                        <div class="product-price">Gratis</div>
-                        <ul>
-                            <li>Gratis betaalpas</li>
-                            <li>Mobiel bankieren</li>
-                            <li>24/7 bereikbaar</li>
-                        </ul>
-                        <div class="product-actions">
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Kies deze rekening</a>
-                        </div>
+                        <div class="product-title">Reisverzekering</div>
+                        <div class="product-price">€4,99 p/m</div>
                     </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">Premium</div>
+                </a>
+            </div>
+            
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/fitbit-charge-5-zwart/9200000084149205/" target="_blank">
+                    <div class="product-image">Persoonlijke lening</div>
                     <div class="product-info">
-                        <div class="product-title">Premiumrekening</div>
-                        <div class="product-price">€4,99/maand</div>
-                        <ul>
-                            <li>Alles in Basis +</li>
-                            <li>Gratis creditcard</li>
-                            <li>Reisverzekering</li>
-                            <li>Hogere limieten</li>
-                        </ul>
-                        <div class="product-actions">
-                            <a href="#" class="btn btn-red" data-action="add-to-cart">Kies deze rekening</a>
-                        </div>
+                        <div class="product-title">Persoonlijke lening</div>
+                        <div class="product-price">Vanaf 5,6%</div>
                     </div>
-                </div>
+                </a>
             </div>
-        </section>
-        
-        <!-- Other sections would follow the same pattern -->
-        <section id="savings-section" class="main-content">
-            <h1>Spaarrekeningen</h1>
-            <p>Maak uw geld werken met onze spaaropties</p>
-            <!-- Content would be similar to accounts section -->
-        </section>
-        
-        <section id="cart-section" class="main-content">
-            <h1>Winkelwagen</h1>
-            <div id="cart-items">
-                <p>Uw winkelwagen is leeg</p>
+            
+            <div class="product-card">
+                <a href="https://www.bol.com/nl/nl/p/oral-b-io-series-6-elektrische-tandenborstel/9300000084149205/" target="_blank">
+                    <div class="product-image">Pensioenrekening</div>
+                    <div class="product-info">
+                        <div class="product-title">Pensioenrekening</div>
+                        <div class="product-price">Fiscaal voordeel</div>
+                    </div>
+                </a>
             </div>
-        </section>
-        
-        <section id="account-section" class="main-content">
-            <h1>Mijn Account</h1>
-            <p>Hier kunt u inloggen of uw account beheren</p>
-            <!-- Login form would go here -->
-        </section>
-    </main>
+        </div>
+    </section>
     
     <!-- Footer -->
     <footer class="main-footer">
@@ -524,27 +475,36 @@
             <div class="footer-column">
                 <h3>Klantenservice</h3>
                 <ul class="footer-links">
-                    <li><a href="#" data-section="contact">Contact</a></li>
-                    <li><a href="#" data-section="faq">Veelgestelde vragen</a></li>
-                    <li><a href="#" data-section="complaints">Klachten</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/contact/" target="_blank">Contact</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/veelgestelde-vragen/" target="_blank">Help & info</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/klachten/" target="_blank">Klachten</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Over ROLLER-BANK</h3>
                 <ul class="footer-links">
-                    <li><a href="#" data-section="about">Over ons</a></li>
-                    <li><a href="#" data-section="careers">Werken bij</a></li>
-                    <li><a href="#" data-section="sustainability">Duurzaamheid</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/over-ons/" target="_blank">Over ons</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/werken-bij/" target="_blank">Werken bij</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/duurzaamheid/" target="_blank">Duurzaamheid</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Juridisch</h3>
                 <ul class="footer-links">
-                    <li><a href="#" data-section="terms">Voorwaarden</a></li>
-                    <li><a href="#" data-section="privacy">Privacy</a></li>
-                    <li><a href="#" data-section="cookies">Cookies</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/algemene-voorwaarden/" target="_blank">Voorwaarden</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/privacy/" target="_blank">Privacy</a></li>
+                    <li><a href="https://www.bol.com/nl/nl/m/service/cookies/" target="_blank">Cookies</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Volg ons</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.facebook.com/bolcom" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/bol_com" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/bol.com/" target="_blank">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -553,107 +513,5 @@
             <p>© 2024 ROLLER-BANK. Alle rechten voorbehouden.</p>
         </div>
     </footer>
-    
-    <script>
-        // Current cart state
-        let cart = [];
-        
-        // DOM elements
-        const navLinks = document.querySelectorAll('.nav-link');
-        const contentSections = document.querySelectorAll('.main-content');
-        const cartLink = document.querySelector('[data-section="cart"]');
-        
-        // Switch between sections
-        function showSection(sectionId) {
-            // Hide all sections
-            contentSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            const section = document.getElementById(`${sectionId}-section`);
-            if (section) {
-                section.classList.add('active');
-            }
-            
-            // Update active nav link
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.section === sectionId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        // Add to cart function
-        function addToCart(productId) {
-            // In a real app, we would add the actual product
-            cart.push({
-                id: Date.now(),
-                name: productId,
-                price: 0,
-                date: new Date()
-            });
-            
-            updateCart();
-            showSection('cart');
-        }
-        
-        // Update cart display
-        function updateCart() {
-            const cartItems = document.getElementById('cart-items');
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p>Uw winkelwagen is leeg</p>';
-            } else {
-                cartItems.innerHTML = `
-                    <h3>Uw selectie (${cart.length})</h3>
-                    <ul>
-                        ${cart.map(item => `
-                            <li>
-                                ${item.name} - ${item.date.toLocaleDateString()}
-                                <button data-id="${item.id}" class="remove-item">❌</button>
-                            </li>
-                        `).join('')}
-                    </ul>
-                `;
-                
-                // Add event listeners to remove buttons
-                document.querySelectorAll('.remove-item').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const itemId = parseInt(this.dataset.id);
-                        cart = cart.filter(item => item.id !== itemId);
-                        updateCart();
-                    });
-                });
-            }
-            
-            // Update cart link
-            if (cartLink) {
-                cartLink.innerHTML = `🛒 Winkelwagen (${cart.length})`;
-            }
-        }
-        
-        // Event delegation for all clicks
-        document.addEventListener('click', function(e) {
-            // Navigation links
-            if (e.target.matches('[data-section]')) {
-                e.preventDefault();
-                showSection(e.target.dataset.section);
-            }
-            
-            // Add to cart buttons
-            if (e.target.matches('[data-action="add-to-cart"]')) {
-                e.preventDefault();
-                const productCard = e.target.closest('.product-card');
-                if (productCard) {
-                    addToCart(productCard.dataset.product);
-                }
-            }
-        });
-        
-        // Initialize with home section
-        showSection('home');
-    </script>
 </body>
 </html>
