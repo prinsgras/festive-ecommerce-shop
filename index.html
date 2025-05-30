@@ -1,13 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bol.com | De winkel van ons allemaal</title>
+    <style>
+        :root {
+            --bol-blue: #003b8e;
+            --bol-orange: #f39200;
+            --bol-light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bol-light-gray);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: var(--bol-blue);
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--bol-blue);
+            border-radius: 4px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--bol-blue);
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        /* Hero Banner */
+        .hero {
+            height: 300px;
+            background-color: var(--bol-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        /* Product Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            margin: 20px 0;
+            color: var(--bol-blue);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            color: var(--bol-orange);
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bol-blue);
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">bol.com</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Zoeken op bol.com...">
+            </div>
+            <div>Inloggen</div>
+            <div>Winkelwagen</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul class="nav-links">
+            <li>Top 20</li>
+            <li>Boeken</li>
+            <li>Electronica</li>
+            <li>Speelgoed</li>
+            <li>Kleding</li>
+            <li>Sport</li>
+            <li>Boodschappen</li>
+        </ul>
+    </nav>
+    
+    <div class="hero">
+        <h1>Nu in de aanbieding!</h1>
+    </div>
+    
+    <div class="container">
+        <h2 class="section-title">Populaire producten</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Sony WH-1000XM5 hoofdtelefoon</div>
+                    <div class="product-price">€ 379,-</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Philips Hue White and Color Ambiance</div>
+                    <div class="product-price">€ 59,99</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">LEGO Star Wars Millennium Falcon</div>
+                    <div class="product-price">€ 169,-</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Nespresso Vertuo Next koffiemachine</div>
+                    <div class="product-price">€ 129,-</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Onze aanraders voor jou</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Apple AirPods Pro (2e generatie)</div>
+                    <div class="product-price">€ 269,-</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Samsung Galaxy S23</div>
+                    <div class="product-price">€ 849,-</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Fitbit Charge 5</div>
+                    <div class="product-price">€ 149,95</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Afbeelding</div>
+                <div class="product-info">
+                    <div class="product-title">Oral-B iO Series 6 elektrische tandenborstel</div>
+                    <div class="product-price">€ 199,-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 bol.com - De winkel van ons allemaal</p>
+    </footer>
+</body>
 </html>
