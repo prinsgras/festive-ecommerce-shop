@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14% 4%;
+  --muted: 60 5% 96%;
+  --muted-foreground: 25 5% 45%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14% 4%;
+  --border: 20 6% 90%;
+  --input: 20 6% 90%;
+  --primary: 0 84% 60%; /* Festive Red */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 60 5% 96%;
+  --secondary-foreground: 24 10% 10%;
+  --accent: 158 64% 52%; /* Festive Green */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 60 9% 98%;
+  --ring: 20 14% 4%;
+  --radius: 0.5rem;
+  
+  /* Custom festive colors */
+  --festive-red: 0 84% 60%; /* #DC2626 equivalent */
+  --festive-green: 158 64% 52%; /* #059669 equivalent */
+  --accent-red: 0 91% 71%; /* #EF4444 equivalent */
+  --accent-green: 142 76% 73%; /* #10B981 equivalent */
+}
+
+.dark {
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+  --popover: 240 10% 4%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 4%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --primary: 0 84% 60%; /* Festive Red */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 158 64% 52%; /* Festive Green */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 5% 84%;
+  
+  /* Custom festive colors for dark mode */
+  --festive-red: 0 84% 60%;
+  --festive-green: 158 64% 52%;
+  --accent-red: 0 91% 71%;
+  --accent-green: 142 76% 73%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-festive-red {
+    color: hsl(var(--festive-red));
+  }
+  
+  .text-festive-green {
+    color: hsl(var(--festive-green));
+  }
+  
+  .text-accent-red {
+    color: hsl(var(--accent-red));
+  }
+  
+  .text-accent-green {
+    color: hsl(var(--accent-green));
+  }
+  
+  .bg-festive-red {
+    background-color: hsl(var(--festive-red));
+  }
+  
+  .bg-festive-green {
+    background-color: hsl(var(--festive-green));
+  }
+  
+  .bg-accent-red {
+    background-color: hsl(var(--accent-red));
+  }
+  
+  .bg-accent-green {
+    background-color: hsl(var(--accent-green));
+  }
+  
+  .border-festive-red {
+    border-color: hsl(var(--festive-red));
+  }
+  
+  .border-festive-green {
+    border-color: hsl(var(--festive-green));
+  }
+  
+  .hover\:bg-festive-red:hover {
+    background-color: hsl(var(--festive-red));
+  }
+  
+  .hover\:bg-festive-green:hover {
+    background-color: hsl(var(--festive-green));
+  }
+  
+  .hover\:text-festive-red:hover {
+    color: hsl(var(--festive-red));
+  }
+  
+  .hover\:text-festive-green:hover {
+    color: hsl(var(--festive-green));
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
