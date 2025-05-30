@@ -3,160 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RollerBank - Online Winkel Net Als Bol.com</title>
+    <title>ROLLE BANK - Online Winkel</title>
     <style>
-        /* Previous CSS remains the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #003082;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff5500;
+            cursor: pointer;
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+        }
+        
+        .user-actions button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #ff5500;
+            color: white;
+        }
+        
+        nav {
+            background-color: #003082;
+            padding: 10px 0;
+            border-top: 1px solid #0044aa;
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-right: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .main-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 20%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 15px;
+            color: #003082;
+        }
+        
+        .categories {
+            list-style: none;
+        }
+        
+        .categories li {
+            margin-bottom: 10px;
+        }
+        
+        .categories a {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .categories a:hover {
+            color: #ff5500;
+        }
+        
+        .products {
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .product-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #ff5500;
+            font-size: 18px;
+        }
+        
+        .product-shipping {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        footer {
+            background-color: #003082;
+            color: white;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 15px;
+            color: #ff5500;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .products {
+                width: 100%;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Previous HTML structure remains the same until the script section -->
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="reloadPage()">ROLLE BANK</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Wat zoek je vandaag?" onkeypress="handleSearch(event)">
+            </div>
+            <div class="user-actions">
+                <button onclick="reloadPage()">Inloggen</button>
+                <button onclick="reloadPage()">Winkelwagen</button>
+            </div>
+        </div>
+    </header>
     
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a onclick="reloadPage()">Home</a></li>
+                <li><a onclick="reloadPage()">Categorieën</a></li>
+                <li><a onclick="reloadPage()">Aanbiedingen</a></li>
+                <li><a onclick="reloadPage()">Nieuwe producten</a></li>
+                <li><a onclick="reloadPage()">Klantenservice</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Categorieën</h3>
+            <ul class="categories">
+                <li><a onclick="reloadPage()">Boeken</a></li>
+                <li><a onclick="reloadPage()">Electronica</a></li>
+                <li><a onclick="reloadPage()">Huishouden</a></li>
+                <li><a onclick="reloadPage()">Speelgoed</a></li>
+                <li><a onclick="reloadPage()">Kantoor</a></li>
+                <li><a onclick="reloadPage()">Tuin</a></li>
+                <li><a onclick="reloadPage()">Kleding</a></li>
+                <li><a onclick="reloadPage()">Sport</a></li>
+                <li><a onclick="reloadPage()">Baby</a></li>
+                <li><a onclick="reloadPage()">Beauty</a></li>
+                <li><a onclick="reloadPage()">Auto</a></li>
+                <li><a onclick="reloadPage()">Dieren</a></li>
+            </ul>
+        </aside>
+        
+        <main class="products" id="productsContainer">
+            <!-- Products will be loaded here via JavaScript -->
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Over ROLLE BANK</h4>
+                <ul>
+                    <li><a onclick="reloadPage()">Over ons</a></li>
+                    <li><a onclick="reloadPage()">Vacatures</a></li>
+                    <li><a onclick="reloadPage()">Pers</a></li>
+                    <li><a onclick="reloadPage()">Algemene voorwaarden</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Klantenservice</h4>
+                <ul>
+                    <li><a onclick="reloadPage()">Contact</a></li>
+                    <li><a onclick="reloadPage()">Veelgestelde vragen</a></li>
+                    <li><a onclick="reloadPage()">Retourneren</a></li>
+                    <li><a onclick="reloadPage()">Verzending</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Mijn account</h4>
+                <ul>
+                    <li><a onclick="reloadPage()">Mijn bestellingen</a></li>
+                    <li><a onclick="reloadPage()">Mijn verlanglijst</a></li>
+                    <li><a onclick="reloadPage()">Mijn gegevens</a></li>
+                    <li><a onclick="reloadPage()">Mijn reviews</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Volg ons</h4>
+                <ul>
+                    <li><a onclick="reloadPage()">Facebook</a></li>
+                    <li><a onclick="reloadPage()">Twitter</a></li>
+                    <li><a onclick="reloadPage()">Instagram</a></li>
+                    <li><a onclick="reloadPage()">Pinterest</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Document ready function
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Navigation Menu Buttons
-            const navButtons = document.querySelectorAll('.nav-menu a');
-            navButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.textContent.trim().toLowerCase();
-                    navigateTo(page);
-                });
-            });
-            
-            // 2. Search Functionality
-            const searchInput = document.querySelector('.search-bar input');
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch(this.value);
-                }
-            });
-            
-            // 3. User Action Buttons
-            const loginButton = document.querySelector('.user-actions button:first-child');
-            const cartButton = document.querySelector('.user-actions button:last-child');
-            
-            loginButton.addEventListener('click', function() {
-                window.location.href = 'https://www.rollerbank.com/login';
-            });
-            
-            cartButton.addEventListener('click', function() {
-                window.location.href = 'https://www.rollerbank.com/cart';
-            });
-            
-            // 4. Category Links
-            const categoryLinks = document.querySelectorAll('.categories a');
-            categoryLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const category = this.textContent.trim().toLowerCase();
-                    filterByCategory(category);
-                });
-            });
-            
-            // 5. Product Cards
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const productId = this.querySelector('.product-title').textContent
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, '-')
-                        .replace(/(^-|-$)/g, '');
-                    viewProduct(productId);
-                });
-            });
-            
-            // 6. Footer Links
-            const footerLinks = document.querySelectorAll('.footer-column a');
-            footerLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const section = this.textContent.trim().toLowerCase();
-                    navigateFooter(section);
-                });
-            });
-            
-            // Navigation functions
-            function navigateTo(page) {
-                // Map Bol.com pages to RollerBank equivalents
-                const pageMap = {
-                    'home': '/',
-                    'categorieën': '/categories',
-                    'aanbiedingen': '/deals',
-                    'nieuwe producten': '/new',
-                    'klantenservice': '/customer-service'
-                };
-                
-                if (pageMap[page]) {
-                    window.location.href = `https://www.rollerbank.com${pageMap[page]}`;
-                } else {
-                    window.location.href = 'https://www.rollerbank.com/404';
-                }
-            }
-            
-            function performSearch(query) {
+        // Reload page with random products
+        function reloadPage() {
+            loadProducts();
+            return false; // Prevent default link behavior
+        }
+
+        // Handle search
+        function handleSearch(e) {
+            if (e.key === 'Enter') {
+                const query = document.getElementById('searchInput').value;
                 if (query.trim() !== '') {
-                    window.location.href = `https://www.rollerbank.com/search?q=${encodeURIComponent(query)}`;
+                    alert(`Zoeken naar: ${query}`);
+                    reloadPage();
                 }
             }
+        }
+
+        // Generate random products
+        function loadProducts() {
+            const productsContainer = document.getElementById('productsContainer');
+            productsContainer.innerHTML = '';
             
-            function filterByCategory(category) {
-                // Map Bol.com categories to RollerBank equivalents
-                const categoryMap = {
-                    'boeken': 'books',
-                    'electronica': 'electronics',
-                    'huishouden': 'household',
-                    'speelgoed': 'toys',
-                    'kantoor': 'office',
-                    'tuin': 'garden',
-                    'kleding': 'clothing',
-                    'sport': 'sports',
-                    'baby': 'baby',
-                    'beauty': 'beauty',
-                    'auto': 'auto',
-                    'dieren': 'pets'
-                };
+            const categories = [
+                "Electronica", "Boeken", "Kleding", "Speelgoed", "Huishouden", 
+                "Tuin", "Sport", "Auto", "Beauty", "Baby"
+            ];
+            
+            const products = [];
+            
+            for (let i = 1; i <= 8; i++) {
+                const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+                const randomPrice = (Math.random() * 500 + 20).toFixed(2);
                 
-                if (categoryMap[category]) {
-                    window.location.href = `https://www.rollerbank.com/categories/${categoryMap[category]}`;
-                }
+                products.push(`
+                    <article class="product-card" onclick="reloadPage()">
+                        <img src="https://source.unsplash.com/random/180x180/?${randomCategory},shopping,product&${Math.random()}" 
+                             alt="Product ${i}" class="product-image">
+                        <h3 class="product-title">${randomCategory} Product ${i}</h3>
+                        <div class="product-price">€ ${randomPrice}</div>
+                        <div class="product-shipping">Morgen in huis</div>
+                    </article>
+                `);
             }
             
-            function viewProduct(productId) {
-                window.location.href = `https://www.rollerbank.com/products/${productId}`;
-            }
-            
-            function navigateFooter(section) {
-                // Map footer sections to RollerBank equivalents
-                const footerMap = {
-                    'over ons': '/about',
-                    'vacatures': '/careers',
-                    'pers': '/press',
-                    'algemene voorwaarden': '/terms',
-                    'contact': '/contact',
-                    'veelgestelde vragen': '/faq',
-                    'retourneren': '/returns',
-                    'verzending': '/shipping',
-                    'mijn bestellingen': '/orders',
-                    'mijn verlanglijst': '/wishlist',
-                    'mijn gegevens': '/account',
-                    'mijn reviews': '/reviews',
-                    'facebook': 'https://facebook.com/rollerbank',
-                    'twitter': 'https://twitter.com/rollerbank',
-                    'instagram': 'https://instagram.com/rollerbank',
-                    'pinterest': 'https://pinterest.com/rollerbank'
-                };
-                
-                if (footerMap[section]) {
-                    if (section === 'facebook' || section === 'twitter' || 
-                        section === 'instagram' || section === 'pinterest') {
-                        window.open(footerMap[section], '_blank');
-                    } else {
-                        window.location.href = `https://www.rollerbank.com${footerMap[section]}`;
-                    }
-                }
-            }
-        });
+            productsContainer.innerHTML = products.join('');
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', loadProducts);
     </script>
 </body>
 </html>
