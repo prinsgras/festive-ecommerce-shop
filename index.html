@@ -3,387 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROLLER-BANK | Snelle online banking</title>
+    <title>ROLLER-BANK | Online bankieren</title>
     <style>
+        /* Bol.com inspired styles adapted for ROLLER-BANK */
         :root {
-            --roller-green: #4CAF50;
-            --roller-red: #F44336;
+            --roller-primary: #4CAF50;  /* Light green */
+            --roller-secondary: #F44336; /* Light red */
             --roller-white: #FFFFFF;
-            --roller-light-gray: #F5F5F5;
-            --roller-dark: #333333;
+            --roller-light-bg: #F5F5F5;
+            --roller-dark-text: #333333;
+            --roller-border: #E0E0E0;
         }
-        
-        * {
+
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--roller-light-bg);
+            color: var(--roller-dark-text);
         }
-        
-        body {
-            background-color: var(--roller-light-gray);
-            color: var(--roller-dark);
-        }
-        
-        /* Header Styles */
+
+        /* Header styles */
         .top-header {
-            background: linear-gradient(135deg, var(--roller-green), var(--roller-red));
+            background-color: var(--roller-primary);
             color: var(--roller-white);
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            font-size: 14px;
         }
-        
-        .main-header {
-            background-color: var(--roller-white);
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
+
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--roller-white);
+            background-color: var(--roller-secondary);
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--roller-primary);
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--roller-primary);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .user-actions a {
+            color: var(--roller-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background-color: var(--roller-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--roller-dark-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--roller-primary);
+        }
+
+        /* Hero banner */
+        .hero-banner {
+            height: 400px;
+            background-color: var(--roller-secondary);
+            background-image: linear-gradient(to right, var(--roller-secondary), var(--roller-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--roller-white);
+            margin: 20px 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--roller-white);
+            color: var(--roller-primary);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Product grid */
+        .product-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--roller-primary);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--roller-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .logo span {
-            color: var(--roller-red);
-        }
-        
-        /* Navigation */
-        .main-nav {
-            background-color: var(--roller-white);
-            border-top: 1px solid rgba(0,0,0,0.1);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-        
-        .nav-links li {
-            margin: 0 1.5rem;
-        }
-        
-        .nav-links a {
-            color: var(--roller-dark);
+
+        .section-title a {
+            font-size: 16px;
+            color: var(--roller-secondary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: color 0.3s;
         }
-        
-        .nav-links a:hover {
-            color: var(--roller-green);
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--roller-red);
-            transition: width 0.3s;
+
+        .product-card {
+            background-color: var(--roller-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
-        
-        .nav-links a:hover:after {
-            width: 100%;
+
+        .product-card:hover {
+            transform: translateY(-5px);
         }
-        
-        /* Hero Banner */
-        .hero {
-            height: 400px;
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+
+        .product-image {
+            height: 200px;
+            background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: var(--roller-dark);
-            margin-bottom: 2rem;
+            color: #999;
         }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            background-color: rgba(255,255,255,0.85);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+        .product-info {
+            padding: 15px;
         }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--roller-green);
+
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
         }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+
+        .product-price {
+            color: var(--roller-secondary);
+            font-weight: bold;
+            font-size: 18px;
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--roller-red);
-            color: var(--roller-white);
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--roller-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background-color: var(--roller-white);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            color: var(--roller-green);
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--roller-red);
-            margin: 1rem auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .service-card {
-            background-color: var(--roller-light-gray);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: var(--roller-red);
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--roller-green);
-        }
-        
+
         /* Footer */
         .main-footer {
-            background-color: var(--roller-dark);
+            background-color: var(--roller-dark-text);
             color: var(--roller-white);
-            padding: 3rem 2rem 1rem;
+            padding: 40px 0 20px;
         }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
         }
-        
+
         .footer-column h3 {
-            color: var(--roller-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            color: var(--roller-primary);
+            margin-bottom: 20px;
+            font-size: 18px;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             color: var(--roller-white);
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 14px;
         }
-        
+
         .footer-links a:hover {
-            color: var(--roller-red);
+            text-decoration: underline;
         }
-        
+
         .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            margin-top: 40px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
         }
-        
-        /* Responsive */
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
-                text-align: center;
+                gap: 15px;
+                padding: 15px;
             }
-            
-            .logo {
-                margin-bottom: 1rem;
+
+            .search-bar {
+                margin: 15px 0;
+                width: 100%;
             }
-            
+
             .nav-links {
-                flex-wrap: wrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
             }
-            
-            .nav-links li {
-                margin: 0.5rem;
+
+            .hero-banner {
+                height: 300px;
             }
-            
-            .hero {
-                height: auto;
-                padding: 4rem 1rem;
+
+            .hero-content h1 {
+                font-size: 32px;
             }
-            
-            .hero h1 {
-                font-size: 2rem;
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Header -->
+    <!-- Top header with logo and search -->
     <header class="top-header">
         <div class="header-container">
-            <p>ROLLER-BANK - De snelste online bank van Nederland</p>
+            <div class="logo">ROLLER-BANK</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Zoeken...">
+                <button>🔍</button>
+            </div>
+            <div class="user-actions">
+                <a href="#account"><span>Mijn account</span></a>
+                <a href="#cart"><span>Winkelwagen</span></a>
+            </div>
         </div>
     </header>
-    
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo">ROLLER<span>-BANK</span></div>
-            <nav>
-                <a href="#login" class="btn">Inloggen</a>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- Navigation -->
+
+    <!-- Main navigation -->
     <nav class="main-nav">
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#bankieren">Bankieren</a></li>
-            <li><a href="#sparen">Sparen</a></li>
-            <li><a href="#beleggen">Beleggen</a></li>
-            <li><a href="#hypotheken">Hypotheken</a></li>
+            <li><a href="#top">Topaanbiedingen</a></li>
+            <li><a href="#accounts">Bankrekeningen</a></li>
+            <li><a href="#savings">Spaarrekeningen</a></li>
+            <li><a href="#investments">Beleggingen</a></li>
+            <li><a href="#mortgages">Hypotheken</a></li>
+            <li><a href="#insurance">Verzekeringen</a></li>
             <li><a href="#service">Service</a></li>
         </ul>
     </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
+
+    <!-- Hero banner -->
+    <section class="hero-banner">
         <div class="hero-content">
-            <h1>Welkom bij ROLLER-BANK</h1>
-            <p>De moderne manier van bankieren. Snel, veilig en altijd binnen handbereik.</p>
-            <a href="#open-account" class="btn">Open nu een rekening</a>
+            <h1>Nieuwe ROLLER-BANK app</h1>
+            <p>Nu nog sneller en veiliger bankieren met onze volledig vernieuwde app</p>
+            <a href="#download" class="cta-button">Download nu</a>
         </div>
     </section>
-    
-    <!-- Services Section -->
-    <section class="services">
-        <h2 class="section-title">Onze Diensten</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">💳</div>
-                <h3>Betaalrekeningen</h3>
-                <p>Volledig digitale betaalrekening met wereldwijde betalingen</p>
-                <a href="#betaalrekening" class="btn">Meer info</a>
+
+    <!-- Product sections -->
+    <section class="product-section">
+        <h2 class="section-title">Populaire diensten <a href="#all">Bekijk alle</a></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">Betaalrekening</div>
+                <div class="product-info">
+                    <div class="product-title">ROLLER Basisrekening</div>
+                    <div class="product-price">Gratis</div>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">💰</div>
-                <h3>Sparen</h3>
-                <p>Competitieve rentetarieven voor al uw spaardoelen</p>
-                <a href="#sparen" class="btn">Meer info</a>
+            <div class="product-card">
+                <div class="product-image">Spaarrekening</div>
+                <div class="product-info">
+                    <div class="product-title">ROLLER Spaar Plus</div>
+                    <div class="product-price">1,5% rente</div>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">📈</div>
-                <h3>Beleggen</h3>
-                <p>Eenvoudig beleggen met lage kosten en persoonlijk advies</p>
-                <a href="#beleggen" class="btn">Meer info</a>
+            <div class="product-card">
+                <div class="product-image">Beleggen</div>
+                <div class="product-info">
+                    <div class="product-title">ROLLER Beleggingsfonds</div>
+                    <div class="product-price">Vanaf €50</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Hypotheek</div>
+                <div class="product-info">
+                    <div class="product-title">ROLLER Hypotheek</div>
+                    <div class="product-price">3,2% rente</div>
+                </div>
             </div>
         </div>
     </section>
-    
+
+    <section class="product-section">
+        <h2 class="section-title">Speciale aanbiedingen <a href="#all">Bekijk alle</a></h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">Creditcard</div>
+                <div class="product-info">
+                    <div class="product-title">ROLLER Creditcard</div>
+                    <div class="product-price">1e jaar gratis</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Verzekering</div>
+                <div class="product-info">
+                    <div class="product-title">Reisverzekering</div>
+                    <div class="product-price">€4,99 p/m</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Lening</div>
+                <div class="product-info">
+                    <div class="product-title">Persoonlijke lening</div>
+                    <div class="product-price">Vanaf 5,6%</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Pensioen</div>
+                <div class="product-info">
+                    <div class="product-title">Pensioenrekening</div>
+                    <div class="product-price">Fiscaal voordeel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="footer-content">
+        <div class="footer-container">
             <div class="footer-column">
-                <h3>Over ROLLER-BANK</h3>
+                <h3>Klantenservice</h3>
                 <ul class="footer-links">
-                    <li><a href="#over-ons">Over ons</a></li>
-                    <li><a href="#werken-bij">Werken bij</a></li>
-                    <li><a href="#duurzaamheid">Duurzaamheid</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#help">Help & info</a></li>
+                    <li><a href="#complaints">Klachten</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h3>Service</h3>
+                <h3>Over ROLLER-BANK</h3>
                 <ul class="footer-links">
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#veelgestelde-vragen">Veelgestelde vragen</a></li>
-                    <li><a href="#klachten">Klachten</a></li>
+                    <li><a href="#about">Over ons</a></li>
+                    <li><a href="#careers">Werken bij</a></li>
+                    <li><a href="#sustainability">Duurzaamheid</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Juridisch</h3>
                 <ul class="footer-links">
-                    <li><a href="#algemene-voorwaarden">Algemene voorwaarden</a></li>
+                    <li><a href="#terms">Voorwaarden</a></li>
                     <li><a href="#privacy">Privacy</a></li>
                     <li><a href="#cookies">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Volg ons</h3>
+                <ul class="footer-links">
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -391,23 +452,17 @@
             <p>© 2024 ROLLER-BANK. Alle rechten voorbehouden.</p>
         </div>
     </footer>
-    
+
     <script>
-        // Make all links point to the same page
+        // Simple script to handle all links
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 if(this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
-                    const sectionId = this.getAttribute('href').substring(1);
-                    alert(`ROLLER-BANK: Deze link zou normaal naar ${sectionId} navigeren`);
+                    const target = this.getAttribute('href').substring(1);
+                    alert(`ROLLER-BANK: Dit zou navigeren naar ${target}`);
                 }
             });
-        });
-        
-        // Simple login button functionality
-        document.querySelector('.btn[href="#login"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('ROLLER-BANK inloggen: Gebruikersnaam en wachtwoord invoeren');
         });
     </script>
 </body>
