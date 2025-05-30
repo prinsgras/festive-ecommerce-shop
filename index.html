@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROLLERBANK | Online Bankieren</title>
+    <title>RollerBank - Online Winkel Net Als Bol.com</title>
     <style>
-        :root {
-            --red: #E30613;
-            --blue: #0033A0;
-            --gold: #FFD700;
-            --white: #FFFFFF;
-            --light-gray: #F5F5F5;
-            --dark: #333333;
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -22,487 +13,360 @@
         }
         
         body {
-            background-color: var(--light-gray);
-            color: var(--dark);
-            line-height: 1.6;
+            background-color: #f5f5f5;
         }
         
-        /* Header Styles */
-        .top-header {
-            background-color: var(--blue);
-            color: var(--white);
-            padding: 10px 0;
-            font-size: 14px;
+        header {
+            background-color: #003082;
+            color: white;
+            padding: 15px 0;
         }
         
         .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
         
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: var(--white);
+            color: #ff5500;
         }
         
-        .logo span {
-            color: var(--gold);
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
         }
         
-        .user-actions {
-            display: flex;
-            gap: 20px;
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
         }
         
-        .user-actions a {
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Navigation */
-        .main-nav {
-            background-color: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        nav {
+            background-color: #003082;
+            padding: 10px 0;
+            border-top: 1px solid #0044aa;
         }
         
         .nav-container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
-        .nav-links {
+        .nav-menu {
             display: flex;
             list-style: none;
-            padding: 15px 0;
         }
         
-        .nav-links li {
-            margin-right: 25px;
+        .nav-menu li {
+            margin-right: 20px;
         }
         
-        .nav-links a {
-            color: var(--blue);
+        .nav-menu a {
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 15px;
-            padding: 5px 0;
-            position: relative;
         }
         
-        .nav-links a:hover {
-            color: var(--red);
-        }
-        
-        /* Hero Banner */
-        .hero {
-            height: 400px;
-            background: linear-gradient(135deg, var(--blue), var(--red));
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .main-container {
+            width: 90%;
+            max-width: 1200px;
             margin: 20px auto;
-            max-width: 1200px;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--gold);
-            color: var(--blue);
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn:hover {
-            background-color: var(--blue);
-            color: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .btn-red {
-            background-color: var(--red);
-            color: var(--white);
-        }
-        
-        .btn-red:hover {
-            background-color: var(--white);
-            color: var(--red);
-        }
-        
-        /* Product Grid */
-        .product-section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--blue);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         
-        .section-title a {
-            font-size: 16px;
-            color: var(--red);
+        .sidebar {
+            width: 20%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 15px;
+            color: #003082;
+        }
+        
+        .categories {
+            list-style: none;
+        }
+        
+        .categories li {
+            margin-bottom: 10px;
+        }
+        
+        .categories a {
+            color: #333;
             text-decoration: none;
-            font-weight: bold;
         }
         
-        .product-grid {
+        .categories a:hover {
+            color: #ff5500;
+        }
+        
+        .products {
+            width: 80%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
         }
         
         .product-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
+            background-color: white;
+            border-radius: 4px;
+            padding: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border: 1px solid #eee;
+            transition: transform 0.2s;
         }
         
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
         .product-image {
-            height: 200px;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            transition: transform 0.3s;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-info {
-            padding: 15px;
-        }
-        
-        .product-title {
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: var(--blue);
-        }
-        
-        .product-price {
-            color: var(--red);
-            font-weight: bold;
-            font-size: 18px;
-            margin: 10px 0;
-        }
-        
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-        
-        .product-actions .btn {
-            padding: 8px 15px;
-            font-size: 14px;
-            flex: 1;
-            margin: 0 5px;
-            text-align: center;
-        }
-        
-        /* Footer */
-        .main-footer {
-            background-color: var(--blue);
-            color: var(--white);
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
-        }
-        
-        .footer-column h3 {
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
             margin-bottom: 10px;
         }
         
-        .footer-links a {
-            color: var(--white);
+        .product-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #ff5500;
+            font-size: 18px;
+        }
+        
+        .product-shipping {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        footer {
+            background-color: #003082;
+            color: white;
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 15px;
+            color: #ff5500;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: white;
             text-decoration: none;
             font-size: 14px;
-            transition: color 0.3s;
         }
         
-        .footer-links a:hover {
-            color: var(--gold);
-            text-decoration: underline;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 14px;
-            color: var(--gold);
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .header-container {
+            .main-container {
                 flex-direction: column;
-                gap: 15px;
             }
             
-            .nav-links {
-                overflow-x: auto;
-                padding-bottom: 10px;
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
             
-            .hero {
-                height: 300px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .product-grid {
+            .products {
+                width: 100%;
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .product-actions {
-                flex-direction: column;
-            }
-            
-            .product-actions .btn {
-                margin: 5px 0;
-                width: 100%;
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-header">
+    <header>
         <div class="header-container">
-            <div class="logo">ROLLER<span>BANK</span></div>
+            <div class="logo">ROLLERBANK</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Wat zoek je vandaag?">
+            </div>
             <div class="user-actions">
-                <a href="https://www.bol.com/nl/nl/mijn/account/overzicht.html" class="btn" target="_blank">Mijn account</a>
-                <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html" class="btn" target="_blank">Winkelwagen</a>
+                <button>Inloggen</button>
+                <button>Winkelwagen</button>
             </div>
         </div>
-    </div>
+    </header>
     
-    <!-- Main Navigation -->
-    <nav class="main-nav">
+    <nav>
         <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="https://www.bol.com/nl/nl/" target="_blank">
-                    <img src="home.jpg" alt="Home" width="16"> Home
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/electronics/" target="_blank">
-                    <img src="betaalrekeningen.jpg" alt="Betaalrekeningen" width="16"> Betaalrekeningen
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/books/" target="_blank">
-                    <img src="spaarrekeningen.jpg" alt="Spaarrekeningen" width="16"> Spaarrekeningen
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/toys/" target="_blank">
-                    <img src="beleggingen.jpg" alt="Beleggingen" width="16"> Beleggingen
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/fashion/" target="_blank">
-                    <img src="hypotheken.jpg" alt="Hypotheken" width="16"> Hypotheken
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/sports/" target="_blank">
-                    <img src="verzekeringen.jpg" alt="Verzekeringen" width="16"> Verzekeringen
-                </a></li>
-                <li><a href="https://www.bol.com/nl/nl/m/service/" target="_blank">
-                    <img src="service.jpg" alt="Service" width="16"> Service
-                </a></li>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categorieën</a></li>
+                <li><a href="#">Aanbiedingen</a></li>
+                <li><a href="#">Nieuwe producten</a></li>
+                <li><a href="#">Klantenservice</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welkom bij ROLLERBANK</h1>
-            <p>Uw moderne bank met traditionele waarden</p>
-            <a href="https://www.bol.com/nl/nl/m/electronics/" class="btn btn-red" target="_blank">Open nu een rekening</a>
-        </div>
-    </section>
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Categorieën</h3>
+            <ul class="categories">
+                <li><a href="#">Boeken</a></li>
+                <li><a href="#">Electronica</a></li>
+                <li><a href="#">Huishouden</a></li>
+                <li><a href="#">Speelgoed</a></li>
+                <li><a href="#">Kantoor</a></li>
+                <li><a href="#">Tuin</a></li>
+                <li><a href="#">Kleding</a></li>
+                <li><a href="#">Sport</a></li>
+                <li><a href="#">Baby</a></li>
+                <li><a href="#">Beauty</a></li>
+                <li><a href="#">Auto</a></li>
+                <li><a href="#">Dieren</a></li>
+            </ul>
+            
+            <h3>Filters</h3>
+            <div class="filters">
+                <label>Prijsrange:</label>
+                <input type="range">
+            </div>
+        </aside>
+        
+        <main class="products">
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+1" alt="Product 1" class="product-image">
+                <h3 class="product-title">Sony WH-1000XM4 Draadloze Noise Cancelling Hoofdtelefoon</h3>
+                <div class="product-price">€ 279,00</div>
+                <div class="product-shipping">Morgen in huis</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+2" alt="Product 2" class="product-image">
+                <h3 class="product-title">Philips Hue White and Color Ambiance Starter Kit</h3>
+                <div class="product-price">€ 149,95</div>
+                <div class="product-shipping">Morgen in huis</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+3" alt="Product 3" class="product-image">
+                <h3 class="product-title">Apple iPad 10.2 (2021) 64GB WiFi Space Grey</h3>
+                <div class="product-price">€ 379,00</div>
+                <div class="product-shipping">Morgen in huis</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+4" alt="Product 4" class="product-image">
+                <h3 class="product-title">Bosch Serie 4 VarioPerfect Wasmachine</h3>
+                <div class="product-price">€ 499,00</div>
+                <div class="product-shipping">Levertijd 3 dagen</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+5" alt="Product 5" class="product-image">
+                <h3 class="product-title">LEGO Creator Expert Taj Mahal</h3>
+                <div class="product-price">€ 349,99</div>
+                <div class="product-shipping">Op voorraad</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+6" alt="Product 6" class="product-image">
+                <h3 class="product-title">Nespresso Vertuo Next Koffiemachine</h3>
+                <div class="product-price">€ 129,00</div>
+                <div class="product-shipping">Morgen in huis</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+7" alt="Product 7" class="product-image">
+                <h3 class="product-title">Samsung QE55Q70A QLED 4K Smart TV</h3>
+                <div class="product-price">€ 899,00</div>
+                <div class="product-shipping">Levertijd 2 dagen</div>
+            </article>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/180x180?text=Product+8" alt="Product 8" class="product-image">
+                <h3 class="product-title">Fitbit Charge 5 Advanced Fitness Tracker</h3>
+                <div class="product-price">€ 149,95</div>
+                <div class="product-shipping">Morgen in huis</div>
+            </article>
+        </main>
+    </div>
     
-    <!-- Product Sections -->
-    <section class="product-section">
-        <h2 class="section-title">Populaire diensten <a href="https://www.bol.com/nl/nl/m/top-20/" target="_blank">Bekijk alle</a></h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="betaalrekening-product.jpg" alt="Betaalrekening">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ROLLERBANK Basis</div>
-                    <div class="product-price">Gratis</div>
-                    <div class="product-actions">
-                        <a href="https://www.bol.com/nl/nl/p/sony-wh-1000xm5-hoofdtelefoon-zwart/9300000084149205/" class="btn" target="_blank">Meer info</a>
-                        <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html?productId=9300000084149205" class="btn btn-red" target="_blank">Openen</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="spaarrekening-product.jpg" alt="Spaarrekening">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ROLLERBANK Spaar Plus</div>
-                    <div class="product-price">1,5% rente</div>
-                    <div class="product-actions">
-                        <a href="https://www.bol.com/nl/nl/p/philips-hue-white-and-color-ambiance-e27-1100lm/9200000084149205/" class="btn" target="_blank">Meer info</a>
-                        <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html?productId=9200000084149205" class="btn btn-red" target="_blank">Openen</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="beleggingen-product.jpg" alt="Beleggingsrekening">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ROLLERBANK Beleggen</div>
-                    <div class="product-price">Vanaf €50</div>
-                    <div class="product-actions">
-                        <a href="https://www.bol.com/nl/nl/p/lego-star-wars-millennium-falcon/9300000084149205/" class="btn" target="_blank">Meer info</a>
-                        <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html?productId=9300000084149205" class="btn btn-red" target="_blank">Openen</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="hypotheken-product.jpg" alt="Hypotheek">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ROLLERBANK Hypotheek</div>
-                    <div class="product-price">3,2% rente</div>
-                    <div class="product-actions">
-                        <a href="https://www.bol.com/nl/nl/p/nespresso-vertuo-next-koffiemachine-zwart/9200000084149205/" class="btn" target="_blank">Meer info</a>
-                        <a href="https://www.bol.com/nl/nl/mijn/account/winkelwagen.html?productId=9200000084149205" class="btn btn-red" target="_blank">Berekenen</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="main-footer">
+    <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h3>Klantenservice</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.bol.com/nl/nl/m/service/contact/" target="_blank">Contact</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/service/veelgestelde-vragen/" target="_blank">Help & info</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/service/klachten/" target="_blank">Klachten</a></li>
+                <h4>Over RollerBank</h4>
+                <ul>
+                    <li><a href="#">Over ons</a></li>
+                    <li><a href="#">Vacatures</a></li>
+                    <li><a href="#">Pers</a></li>
+                    <li><a href="#">Algemene voorwaarden</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h3>Over ROLLERBANK</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.bol.com/nl/nl/m/over-ons/" target="_blank">Over ons</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/werken-bij/" target="_blank">Werken bij</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/duurzaamheid/" target="_blank">Duurzaamheid</a></li>
+                <h4>Klantenservice</h4>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Veelgestelde vragen</a></li>
+                    <li><a href="#">Retourneren</a></li>
+                    <li><a href="#">Verzending</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h3>Juridisch</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.bol.com/nl/nl/m/service/algemene-voorwaarden/" target="_blank">Voorwaarden</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/service/privacy/" target="_blank">Privacy</a></li>
-                    <li><a href="https://www.bol.com/nl/nl/m/service/cookies/" target="_blank">Cookies</a></li>
+                <h4>Mijn account</h4>
+                <ul>
+                    <li><a href="#">Mijn bestellingen</a></li>
+                    <li><a href="#">Mijn verlanglijst</a></li>
+                    <li><a href="#">Mijn gegevens</a></li>
+                    <li><a href="#">Mijn reviews</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h3>Volg ons</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.facebook.com/bolcom" target="_blank">Facebook</a></li>
-                    <li><a href="https://twitter.com/bol_com" target="_blank">Twitter</a></li>
-                    <li><a href="https://www.instagram.com/bol.com/" target="_blank">Instagram</a></li>
+                <h4>Volg ons</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Pinterest</a></li>
                 </ul>
             </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2024 ROLLERBANK. Alle rechten voorbehouden.</p>
         </div>
     </footer>
 </body>
